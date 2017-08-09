@@ -55,6 +55,7 @@ function storeFavorite(){
 }
 
 
+
 function setImage(url){
 	 append($poster, url.Search[0].Poster);
 }	
@@ -72,11 +73,11 @@ $submit.on("click", function(event){
 
 $favorite.on("click", function(event){
 	event.preventDefault();
-	localStorage.setItem(state.current, state.poster);
+	storeFavorite()
+	localStorage.setItem("title", state.current);
 });
 
 
-localStorage.setItem("asdfafs", "Asfdafs")
 
 
 
