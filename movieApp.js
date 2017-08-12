@@ -51,8 +51,17 @@ function append(c, source,){
 }
 
 function storeFavorite(){
-	state.favorites.push(state.current); 
-}
+
+	for (var i = 0; i < state.favorites; i++){
+		if (i in state.current){
+			console.log("In favorites already");
+		}
+	}
+	state.favorites.push(state.current)
+	localStorage.setItem("Favorites", state.favorites); 
+		
+	}
+
 
 
 
@@ -73,9 +82,12 @@ $submit.on("click", function(event){
 
 $favorite.on("click", function(event){
 	event.preventDefault();
-	storeFavorite()
-	localStorage.setItem("title", state.current);
+	storeFavorite();
+	
 });
+
+
+
 
 
 
