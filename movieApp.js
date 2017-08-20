@@ -50,20 +50,23 @@ function append(c, source,){
 	first.appendTo($(c))
 }
 
+
+function isDup(){
+
+if (state.favorites.indexOf(state.current) == -1) {
+	state.favorites.push(state.current);
+	} else {
+		console.log("Already in favorites");
+
+	}
+}
+
 function storeFavorite(){
-
-	for (var i = 0; i < state.favorites; i++){
-		if (i in state.current){
-			console.log("In favorites already");
-		}
-	}
-	state.favorites.push(state.current)
+	
+	isDup()
 	localStorage.setItem("Favorites", state.favorites); 
-		
-	}
-
-
-
+}
+	
 
 function setImage(url){
 	 append($poster, url.Search[0].Poster);
@@ -83,12 +86,16 @@ $submit.on("click", function(event){
 $favorite.on("click", function(event){
 	event.preventDefault();
 	storeFavorite();
+
+
 	
 });
 
 
 
+var localStor = localStorage.getItem("Favorites");
 
+console.log(localStor[1]);
 
 
 
